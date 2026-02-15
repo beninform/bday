@@ -1,0 +1,271 @@
+/* Generic styling */
+
+html{font-family: sans-serif; box-sizing: border-box}
+*,:after,:before{box-sizing: inherit}
+body,button{text-rendering: optimizeLegibility}
+body{
+    /*background-color: #ddd; */
+    
+    background-color: rgba(112, 169, 161, 1); 
+    /*color: rgba(158, 193, 163, 1);*/
+
+/*    $jet-black: rgba(31, 54, 61, 1);
+    $cerulean: rgba(64, 121, 140, 1);
+
+    $tropical-teal: rgba(112, 169, 161, 1);
+    $muted-teal: rgba(158, 193, 163, 1);
+    
+    $tea-green: rgba(207, 224, 195, 1);*/
+
+    color: #3a2c49; margin:0; line-height:1.5;
+    /*color: #9ec1a3ff; margin:0; line-height:1.5;*/
+  }
+
+
+h1{color: #4B3D5A; font-weight:100; font-size: 2rem; margin: .618rem 0}
+
+a{background: transparent; color: #236ECE; text-decoration: none}
+
+a:hover,a:focus,a:active{color: #014cac}
+
+p a:hover,a:focus,li a:hover,a:focus{text-decoration: underline; outline: 0}
+
+header,
+/*.tall-content{background-color: rgba(35,110,206,.15)}*/
+.tall-content{background-color: rgba(207, 224, 195,.15)}  /*tea-green*/
+
+header{padding: 4.236rem}
+.tall-content{height: 50vh; margin: 50vh 0}
+
+
+
+
+/* Snow place to be on a cold day in Tesco */
+
+.snow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: -1;
+
+  /* Encourage hardware acceleration */
+  /* 20vh per row of flakes - adjust falling animation too  */
+  transform: translate3d(0, -20vh, 0);
+
+  /* Flex used to space the i tags evenly horizontally. Plays nicely at inbetween widths */
+  /* Temporarily disable if you are adjusting the number of flakes on screen */
+  display:flex;
+  justify-content: space-between;
+
+  /* Allow for multi row snowflakes */
+  flex-wrap: wrap;
+}
+
+
+
+    /* Generic styling of snowflakes, default animation and transform */
+
+[class^="snow_flake"] {
+  will-change: transform;
+  display: inline-block;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000;
+  animation: falling;
+  animation-iteration-count: infinite;
+ 
+  /* Filter is completely optional and may cause performance issues on low powered GPUs. */
+  /* filter: drop-shadow(0 1px 1px rgba(0,0,0,.125)) blur(1px); */
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  backface-visibility: hidden;
+
+
+/* Four sizes, each requires individual origins set */
+
+[class^="snow_flake"]:nth-child(4n+0) {
+  width: 8rem;
+  height: 8rem;
+  transform-origin: -5% -5%;
+}
+[class^="snow_flake"]:nth-child(4n+1) {
+  width: 6rem;
+  height: 6rem;
+  transform-origin: 15% 0;
+}
+[class^="snow_flake"]:nth-child(4n+2) {
+  width: 4rem;
+  height: 4rem;
+  transform-origin: 0 -30%;
+}
+[class^="snow_flake"]:nth-child(4n+3) {
+  width: 2rem;
+  height: 2rem;
+  transform-origin: -100% -100%;
+}
+
+
+/* Keep first snowflake close to the edge */
+
+[class^="snow_flake"]:first-child {
+  transform-origin: 60% 40%;
+}
+
+
+/* Delay the start times */
+
+[class^="snow_flake"]:nth-of-type(5n+0) {
+  animation-delay: 0s;
+}
+[class^="snow_flake"]:nth-of-type(5n+1) {
+  animation-delay: 2s;
+}
+[class^="snow_flake"]:nth-of-type(5n+2) {
+  animation-delay: 4s;
+}
+[class^="snow_flake"]:nth-of-type(5n+3) {
+  animation-delay: 6s;
+}
+[class^="snow_flake"]:nth-of-type(5n+4) {
+  animation-delay: 8s;
+}
+
+
+/* Animation durations are calculated to be multiples of each other +/- a few seconds for initial delays */
+
+[class^="snow_flake"]:nth-child(3n+0) {
+  animation-duration: 12s;
+}
+[class^="snow_flake"]:nth-child(3n+1) {
+  animation-duration: 18s;
+}
+[class^="snow_flake"]:nth-child(3n+2) {
+  animation-duration: 24s;
+}
+
+
+/* Tweak timing functions - a tad more random */
+
+[class^="snow_flake"]:nth-of-type(6n+0) {
+  animation-timing-function: ease-in-out;
+}
+[class^="snow_flake"]:nth-of-type(6n+1) {
+  animation-timing-function: ease-out;
+}
+[class^="snow_flake"]:nth-of-type(6n+2) {
+  animation-timing-function: ease;
+}
+[class^="snow_flake"]:nth-of-type(6n+3) {
+  animation-timing-function: ease-in;
+}
+[class^="snow_flake"]:nth-of-type(6n+4) {
+  animation-timing-function: linear;
+}
+[class^="snow_flake"]:nth-of-type(6n+5) {
+  animation-timing-function: cubic-bezier(0.2, 0.3, 0.8, 0.9);
+}
+
+
+/* Tweak opacity - more randomness */
+
+[class^="snow_flake"]:nth-of-type(7n+0) {opacity: 0.6;}
+[class^="snow_flake"]:nth-of-type(7n+1) {opacity: 0.9;}
+[class^="snow_flake"]:nth-of-type(7n+2) {opacity: 0.5;}
+[class^="snow_flake"]:nth-of-type(7n+4) {opacity: 0.8;}
+[class^="snow_flake"]:nth-of-type(7n+6) {opacity: 0.7;}
+
+
+/* Filter is completely optional, and it may cause performance issues on low powered GPUs. */
+
+[class^="snow_flake"]:nth-of-type(3n+0) {
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,.125));
+}
+[class^="snow_flake"]:nth-of-type(3n+1) {
+  filter: blur(1px);
+}
+
+
+/* Increase number of snowflakes at common device widths */
+
+.snow_flake-600px,
+.snow_flake-768px,
+.snow_flake-1024px,
+.snow_flake-1280px,
+.snow_flake-1366px,
+.snow_flake-1440px,
+.snow_flake-1600px,
+.snow_flake-1800px,
+.snow_flake-1920px {
+  display: none;
+}
+
+@media (min-width: 600px) {
+  .snow_flake-600px {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 768px) {
+  .snow_flake-768px {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1024px) {
+  .snow_flake-1024px {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1280px) {
+  .snow_flake-1280px {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1366px) {
+  .snow_flake-1366px {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1600px) {
+  .snow_flake-1600px {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1800px) {
+  .snow_flake-1800px {
+    display: inline-block;
+  }
+}
+
+@media (min-width: 1920px) {
+  .snow_flake-1920px {
+    display: inline-block;
+  }
+}
+
+
+
+/* Animation for all snowflakes */
+
+@keyframes falling {
+  from {
+    transform: translate(0, 0) rotate(0deg) scale(0.8);
+  }
+  to {
+    transform: translate(0, 120vh) rotate(360deg) scale(1.2);
+  }
+}
+
+/* Prefers reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .snow {
+    display: none !important;
+  }
+}

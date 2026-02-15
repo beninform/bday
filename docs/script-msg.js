@@ -32,7 +32,6 @@ document.addEventListener("DOMContentLoaded", function(){
 		console.log('qsname test false');
 	}
 	
-	//let nm_arr = ['boo', 'mua', 'fis', 'nos', 'pev', 'oli', 'fim', 'gou', 'epz'];  // xmas '25'
 	let nm_arr = ['boo', 'nos'];  // mbday '26'
 
 	let personmsgnode = document.querySelector(".personmsg");
@@ -43,23 +42,7 @@ document.addEventListener("DOMContentLoaded", function(){
 		if (nm_arr.indexOf(name)==0) {
 			injectHTML("t-generic.html", personmsgnode);
 		} else if (nm_arr.indexOf(name)==1) {
-		// 	injectHTML("t-mbday26.html", personmsgnode);
-		// } else if (nm_arr.indexOf(name)==1) {
-		// 	injectHTML("t-shelter.html", personmsgnode);
-		// } else if (nm_arr.indexOf(name)==2) {
-		// 	injectHTML("t-rnli.html", personmsgnode);
-		// } else if (nm_arr.indexOf(name)==3) {
-		// 	injectHTML("t-pc4r.html", personmsgnode);
-		// } else if (nm_arr.indexOf(name)==4) {
-		// 	injectHTML("t-pc4r2.html", personmsgnode);
-		// } else if (nm_arr.indexOf(name)==5) {
-		// 	injectHTML("t-wiki.html", personmsgnode);
-		// } else if (nm_arr.indexOf(name)==6) {
-		// 	injectHTML("t-msf.html", personmsgnode);
-		// } else if (nm_arr.indexOf(name)==7) {
-		// 	injectHTML("t-khan.html", personmsgnode);
-		// } else if (nm_arr.indexOf(name)==8) {  // 'any'
-		// 	injectHTML("t-msf2.html", personmsgnode);
+			injectHTML("t-mbday26.html", personmsgnode);
 		};
 
 

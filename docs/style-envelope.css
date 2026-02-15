@@ -7,7 +7,7 @@
     margin-left: auto;
     margin-right: auto;
     top: 150px;
-    background-color: #00334c;
+    background-color: #00334c;  /* inside flap */
     box-shadow: 0 4px 20px rgba(0,0,0,0.2);
 }
 .front{
@@ -20,13 +20,14 @@
     border-left: 140px solid transparent;
     border-right: 140px solid transparent;
     border-bottom: 82px solid transparent;
-    border-top: 98px solid #00334c;
+    border-top: 98px solid #496964;
     transform-origin: top;
 }
 .pocket{
-    border-left: 140px solid #0077b2;
-    border-right: 140px solid #0077b2;
-    border-bottom: 90px solid #006ba3;
+    /*border-left: 140px solid #0077b2;*/
+    border-left: 140px solid #9ec1a3;  /* envelope sides */
+    border-right: 140px solid #9ec1a3;  /* envelope sides */
+    border-bottom: 90px solid #608A84;  /* envelope lower */
     border-top: 90px solid transparent;
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
